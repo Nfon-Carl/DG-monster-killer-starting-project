@@ -39,6 +39,19 @@ let currentPlayerHealth = chosenMaxLife
 adjustHealthBars(chosenMaxLife)
 
 function attackHandler(){
+  const monsterDamage = dealMonsterDamage(attackValue)
+  currentMonsterHealth = currentMonsterHealth - monsterDamage
+  const playerDamage = dealPlayerDamage(monsterAttackValue)
+  currentPlayerHealth = currentPlayerHealth - playerDamage
+
+  if(currentMonsterHealth <= 0 && currentPlayerHealth >0 ){
+     alert('YOU WON');
+  }else if(currentPlayerHealth <= 0 && currentMonsterHealth > 0 ){
+   alert('YOU LOST')
+  }else if(currentPlayerHealth<=0 && currentMonsterHealth<=0){
+      alert('ITS A DRAW')
+  }
+
 
 }
 
